@@ -9,8 +9,8 @@ import Document, {
 } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import { AppType } from "next/app";
-import theme, { roboto } from "@/src/theme";
-import createEmotionCache from "@/src/createEmotionCache";
+import theme, { roboto } from "@/styles/theme";
+import createEmotionCache from "@/libs/createEmotionCache";
 import { MyAppProps } from "@/pages/_app";
 
 interface MyDocumentProps extends DocumentProps {
@@ -19,9 +19,12 @@ interface MyDocumentProps extends DocumentProps {
 
 export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
   return (
-    <Html lang="en" className={roboto.className}>
+    <Html lang="pt-br" className={roboto.className}>
       <Head>
         {/* PWA primary color */}
+        <meta name="language" content="pt-br" />
+        <meta name="robots" content="index,follow"></meta>
+        <meta name="description" content="Setup next js + mui"></meta>
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
