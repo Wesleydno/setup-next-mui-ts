@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 
-export default function Home() {
+export default function Enterprise() {
   return (
     <Box component="header">
       <Typography variant="h4" component="h1" gutterBottom>
-        Home
+        Enterprise
       </Typography>
     </Box>
   );
