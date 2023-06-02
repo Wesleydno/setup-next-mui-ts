@@ -26,15 +26,16 @@ const advancedHeaders = [
 ];
 
 const nextConfig = {
-  transpilePackages: ["@mui/system", "@mui/material", "@mui/icons-material"],
   reactStrictMode: true,
   swcMinify: true,
+  optimizeFonts: true,
+  compress: true,
   modularizeImports: {
-    "@mui/material/?(((\\w*)?/?)*)": {
-      transform: "@mui/material/{{ matches.[1] }}/{{member}}",
+    "@mui/material": {
+      transform: "@mui/material/{{member}}",
     },
-    "@mui/icons-material/?(((\\w*)?/?)*)": {
-      transform: "@mui/icons-material/{{ matches.[1] }}/{{member}}",
+    "@mui/icons-material": {
+      transform: "@mui/icons-material/{{member}}",
     },
   },
   async headers() {
@@ -45,6 +46,9 @@ const nextConfig = {
         headers: advancedHeaders,
       },
     ];
+  },
+  images: {
+    unoptimized: true,
   },
 };
 
